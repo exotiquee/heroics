@@ -9,7 +9,9 @@ const config = {
 		// Hash routing: the whole suite is one static index.html that runs anywhere,
 		// including from a sub-path. Switch to path routing once it has its own server.
 		router: { type: 'hash' },
-		paths: { relative: true }
+		paths: { relative: true },
+		// Some static hosts reserve names starting with `_`.
+		appDir: 'app'
 	}
 };
 

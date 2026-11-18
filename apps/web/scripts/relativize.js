@@ -5,8 +5,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 const file = new URL('../build/index.html', import.meta.url);
 const html = readFileSync(file, 'utf8');
 const out = html
-	.replaceAll('"/_app/', '"./_app/')
+	.replaceAll('"/app/', '"./app/')
 	.replaceAll('href="/favicon.svg"', 'href="./favicon.svg"');
-if (out.includes('"/_app/')) throw new Error('relativize: absolute asset paths remain');
+if (out.includes('"/app/')) throw new Error('relativize: absolute asset paths remain');
 writeFileSync(file, out);
 console.log('relativize: build/index.html now uses relative asset paths');
