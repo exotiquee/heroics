@@ -1,0 +1,19 @@
+{
+  "name": "@heroics/schema",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "test:db": "bash scripts/test-db.sh"
+  },
+  "dependencies": {
+    "@heroics/policy": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3"
+  }
+}

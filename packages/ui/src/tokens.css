@@ -1,0 +1,124 @@
+/* Heroics design tokens. Dark-first; each app owns a hue that the shell morphs between. */
+
+@property --accent {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #f2c14e;
+}
+@property --glow-a {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #f2c14e;
+}
+@property --glow-b {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #9b7bff;
+}
+
+:root {
+	color-scheme: dark;
+
+	/* Base */
+	--night: #131a2c;
+	--night-deep: #0f1524;
+	--slate: #1c2540;
+	--slate-2: #243052;
+	--slate-3: #2e3b63;
+	--mist: #a9b4cf;
+	--mist-dim: #7c88a6;
+	--paper: #eef1f8;
+	--line: rgb(169 180 207 / 0.13);
+	--line-strong: rgb(169 180 207 / 0.24);
+
+	/* App hues */
+	--ember: #ff7a45;
+	--jade: #2fd3a0;
+	--iris: #9b7bff;
+	--gold: #f2c14e;
+
+	/* Meaning */
+	--good: #2fd3a0;
+	--warn: #f2c14e;
+	--bad: #ff5c7a;
+
+	/* Labels */
+	--label-open: #7c88a6;
+	--label-personal: #6fb6ff;
+	--label-private: #f2c14e;
+	--label-sealed: #ff5c7a;
+
+	/* Type */
+	--font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+	--font-body: 'Instrument Sans Variable', ui-sans-serif, system-ui, sans-serif;
+	--t-xs: 0.75rem;
+	--t-sm: 0.8438rem;
+	--t-md: 0.9375rem;
+	--t-lg: 1.125rem;
+	--t-xl: 1.5rem;
+	--t-2xl: 2rem;
+	--t-3xl: 3rem;
+	--t-4xl: 4.5rem;
+
+	/* Shape: radius follows hierarchy */
+	--r-xs: 6px;
+	--r-sm: 10px;
+	--r-md: 16px;
+	--r-lg: 24px;
+	--r-pill: 999px;
+
+	/* Space (8pt) */
+	--s-1: 4px;
+	--s-2: 8px;
+	--s-3: 12px;
+	--s-4: 16px;
+	--s-5: 24px;
+	--s-6: 32px;
+	--s-7: 48px;
+	--s-8: 64px;
+
+	/* Motion */
+	--ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+	--ease-spring: linear(
+		0, 0.009, 0.035 2.1%, 0.141, 0.281 6.7%, 0.723 12.9%, 0.938 16.7%, 1.017, 1.077, 1.121,
+		1.149 24.3%, 1.159, 1.163, 1.161, 1.154 29.9%, 1.129 32.8%, 1.051 39.6%, 1.017 43.1%, 0.991,
+		0.977 51%, 0.974 53.8%, 0.975 57.1%, 0.997 69.8%, 1.003 76.9%, 1
+	);
+	--dur-fast: 160ms;
+	--dur: 280ms;
+	--dur-slow: 620ms;
+
+	--accent: var(--gold);
+	--accent-soft: color-mix(in oklab, var(--accent) 16%, transparent);
+	--accent-line: color-mix(in oklab, var(--accent) 45%, transparent);
+	--shadow-lift: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 12px 32px -12px rgb(4 8 20 / 0.7);
+}
+
+[data-app='hq'] {
+	--accent: var(--gold);
+	--glow-a: var(--gold);
+	--glow-b: var(--iris);
+}
+[data-app='fitness'] {
+	--accent: var(--ember);
+	--glow-a: var(--ember);
+	--glow-b: #ff3d6e;
+}
+[data-app='finance'] {
+	--accent: var(--jade);
+	--glow-a: var(--jade);
+	--glow-b: #2fa8d3;
+}
+[data-app='projects'] {
+	--accent: var(--iris);
+	--glow-a: var(--iris);
+	--glow-b: #5b8cff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--dur-fast: 0ms;
+		--dur: 0ms;
+		--dur-slow: 0ms;
+	}
+}

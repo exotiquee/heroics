@@ -1,0 +1,198 @@
+/* Base element styles and a few shared primitives. Import after tokens.css. */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	height: 100%;
+}
+
+body {
+	background: var(--night);
+	color: var(--paper);
+	font-family: var(--font-body);
+	font-size: var(--t-md);
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-display);
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	line-height: 1.1;
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button {
+	font: inherit;
+	color: inherit;
+	background: none;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+}
+
+input,
+textarea,
+select {
+	font: inherit;
+	color: inherit;
+}
+
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+	border-radius: var(--r-xs);
+}
+
+::selection {
+	background: var(--accent-soft);
+}
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--slate-3) transparent;
+}
+
+.num {
+	font-variant-numeric: tabular-nums;
+	font-feature-settings: 'tnum';
+}
+
+.display {
+	font-family: var(--font-display);
+	letter-spacing: -0.03em;
+}
+
+.muted {
+	color: var(--mist);
+}
+
+.dim {
+	color: var(--mist-dim);
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* Buttons */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--s-2);
+	height: 36px;
+	padding: 0 var(--s-4);
+	border-radius: var(--r-pill);
+	font-size: var(--t-sm);
+	font-weight: 600;
+	background: var(--slate-2);
+	color: var(--paper);
+	transition:
+		background var(--dur-fast) var(--ease-out),
+		transform var(--dur-fast) var(--ease-out);
+	white-space: nowrap;
+}
+.btn:hover {
+	background: var(--slate-3);
+}
+.btn:active {
+	transform: scale(0.97);
+}
+.btn-primary {
+	background: var(--accent);
+	color: var(--night-deep);
+}
+.btn-primary:hover {
+	background: color-mix(in oklab, var(--accent) 85%, white);
+}
+.btn-ghost {
+	background: transparent;
+	color: var(--mist);
+}
+.btn-ghost:hover {
+	background: var(--slate);
+	color: var(--paper);
+}
+.btn-sm {
+	height: 30px;
+	padding: 0 var(--s-3);
+	font-size: var(--t-xs);
+}
+.icon-btn {
+	display: inline-grid;
+	place-items: center;
+	width: 36px;
+	height: 36px;
+	border-radius: var(--r-sm);
+	color: var(--mist);
+	transition:
+		background var(--dur-fast) var(--ease-out),
+		color var(--dur-fast) var(--ease-out);
+}
+.icon-btn:hover {
+	background: var(--slate);
+	color: var(--paper);
+}
+
+/* Surfaces: used sparingly, for hero zones and overlays only */
+.surface {
+	background: color-mix(in oklab, var(--slate) 78%, transparent);
+	border: 1px solid var(--line);
+	border-radius: var(--r-lg);
+	box-shadow: var(--shadow-lift);
+	backdrop-filter: blur(18px) saturate(1.2);
+}
+
+/* Quiet section heading: sentence case, no eyebrow */
+.section-title {
+	font-family: var(--font-display);
+	font-size: var(--t-lg);
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+
+.rows > * + * {
+	border-top: 1px solid var(--line);
+}
+
+.chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	height: 24px;
+	padding: 0 10px;
+	border-radius: var(--r-pill);
+	font-size: var(--t-xs);
+	font-weight: 600;
+	background: var(--slate-2);
+	color: var(--mist);
+	white-space: nowrap;
+}
