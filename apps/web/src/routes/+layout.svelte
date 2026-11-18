@@ -121,7 +121,7 @@
 			z-index: 5;
 			display: flex;
 			gap: var(--s-2);
-			padding: var(--s-3) var(--s-4);
+			padding: calc(var(--s-3) + env(safe-area-inset-top)) var(--s-4) var(--s-3);
 			overflow-x: auto;
 			background: color-mix(in oklab, var(--night) 82%, transparent);
 			backdrop-filter: blur(16px);
